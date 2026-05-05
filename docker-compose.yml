@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: mysql:8
+    container_name: taller-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: taller
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: .
+    container_name: taller-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  frontend:
+    build: https://github.com/SrCristian18/taller-mecanico-frontend.git
+    container_name: taller-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

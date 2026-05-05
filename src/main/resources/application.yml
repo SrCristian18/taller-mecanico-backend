@@ -1,0 +1,19 @@
+spring:
+  aplication:
+    name: tallerMecanico-backend
+
+  datasource:
+    url: jdbc:mysql://db:3306/taller
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
