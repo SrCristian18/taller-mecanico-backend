@@ -2,8 +2,8 @@ package com.tallerMecanico.domain.ports.in;
 
 import java.util.List;
 
-import com.tallerMecanico.domain.model.ServiceStatus;
 import com.tallerMecanico.domain.model.Vehicle;
+import com.tallerMecanico.domain.model.enums.ServiceStatus;
 
 public interface VehicleUseCase {
     void registerVehicle(Vehicle vehicle);

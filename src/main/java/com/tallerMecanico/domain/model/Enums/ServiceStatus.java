@@ -1,4 +1,4 @@
-package com.tallerMecanico.domain.model;
+package com.tallerMecanico.domain.model.enums;
 
 public enum ServiceStatus {
     EN_ESPERA,
