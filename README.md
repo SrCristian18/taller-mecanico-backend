@@ -1,5 +1,5 @@
 # Taller-mecanico-backend
-## Ejecución del sistema completo
+## Ejecución del sistema
 
 ```
 git clone https://github.com/SrCristian18/taller-mecanico-backend.git
