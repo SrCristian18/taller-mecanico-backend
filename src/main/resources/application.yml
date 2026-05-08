@@ -1,13 +1,15 @@
 spring:
-  aplication:
+  application:
     name: tallerMecanico-backend
 
   datasource:
     url: jdbc:mysql://db:3306/taller
     username: root
     password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
