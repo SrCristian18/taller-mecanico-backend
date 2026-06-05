@@ -7,6 +7,7 @@ import com.tallerMecanico.domain.event.VehicleEvent;
 import com.tallerMecanico.infrastructure.persistence.entities.EventHistory;
 import com.tallerMecanico.infrastructure.persistence.repositories.EventHistoryJpaRepository;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,12 +15,20 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @RequiredArgsConstructor
 public class VehicleEventConsumer {
+    
     private final EventHistoryJpaRepository repository;
+    
+    @PostConstruct
+    public void init()
+    {
+        log.info("*** Vehicle event consume iniciado ***");
+    }
 
     @KafkaListener(
         topics = "vehicle-events",
         groupId = "vehicle-group"
     )
+
     public void consume(VehicleEvent event)
     {
         log.info("Evento recibido desde kafka -> {}",event);
@@ -35,5 +44,4 @@ public class VehicleEventConsumer {
 
         log.info("Evento guardado en el historial");
     }
-
 }

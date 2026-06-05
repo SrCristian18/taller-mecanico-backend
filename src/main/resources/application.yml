@@ -12,19 +12,19 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
       properties:
-        spring:
-          json:
-            trusted:
-              packages: "*"
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.tallerMecanico.domain.event.VehicleEvent
 
   application:
     name: tallerMecanico-backend
 
   datasource:
-    url: jdbc:mysql://db:3306/taller
+    url: jdbc:mysql://db:3306/taller?autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      initialization-fail-timeout: 60000
 
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
