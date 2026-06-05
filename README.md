@@ -19,6 +19,7 @@ git clone https://github.com/SrCristian18/taller-mecanico-frontend.git
 cd taller-mecanico-backend
 docker-compose up -d --build
 ```
+Nota: En caso de que se presenten problemas con el contenedor, primero se tendrá que levantar la base de datos, luego Kafka y por último el backend. El frontend está comentado para evitar que se levante, ya que no será necesito utilizarlo.
 
 ## Ejecución Local (Sin Docker)
 Para ejecutar el backend de forma local sin Docker, es necesario tener Java instalado y una base de datos MySQL corriendo.

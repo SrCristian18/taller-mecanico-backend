@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.tallerMecanico.domain.model.Vehicle;
 
 public interface VehicleRepositoryPort {
-    void save(Vehicle vehicle);
+    Vehicle save(Vehicle vehicle);
 
     Optional<Vehicle> findByPlate(String plate);
 
