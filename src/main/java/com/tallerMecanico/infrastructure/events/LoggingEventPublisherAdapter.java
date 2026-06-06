@@ -1,15 +1,13 @@
 package com.tallerMecanico.infrastructure.events;
 
-import org.springframework.stereotype.Component;
-
 import com.tallerMecanico.domain.event.VehicleEvent;
 import com.tallerMecanico.domain.ports.out.EventPublisherPort;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 
+//Esta clase es solo para probar el productor y consumidor sin Kafka
 @Slf4j
-// @Component
 public class LoggingEventPublisherAdapter implements EventPublisherPort{
 
     @Override
