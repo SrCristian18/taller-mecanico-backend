@@ -23,7 +23,7 @@ public class JpaVehicleRepositoryAdapter implements VehicleRepositoryPort {
     private final VehiclePersistenceMapper mapper;
 
     @Override
-    public void save(Vehicle vehicle) {
+    public Vehicle save(Vehicle vehicle) {
         OwnerEntity ownerEntity = jpaOwnerRepository.findByNameAndPhone(
                 vehicle.getOwner().getName(), 
                 vehicle.getOwner().getPhone()
@@ -40,6 +40,7 @@ public class JpaVehicleRepositoryAdapter implements VehicleRepositoryPort {
                 .ifPresent(existing -> entity.setId(existing.getId()));
         
         jpaVehicleRepository.save(entity);
+        return vehicle;
     }
 
     @Override

@@ -1,35 +1,24 @@
 # Taller-mecanico-backend
 
-## Ejecución del sistema completo (Con Docker - Recomendado)
-Todo el ecosistema (Frontend, Backend y Base de Datos) está orquestado mediante Docker Compose.
+## Pasos para ejecutar el sistema completo con Docker (Backend, Kafka y Base de datos)
 
-**IMPORTANTE:** Para que Docker Compose funcione correctamente, debes tener ambos repositorios clonados dentro de la misma carpeta padre, con los nombres exactos `taller-mecanico-backend` y `taller-mecanico-frontend`.
+#### 1. Clonar el repositorio:
+``git clone https://github.com/SrCristian18/taller-mecanico-backend.git``
 
-```bash
-# Ejemplo de estructura requerida:
-# /proyectos
-# ├── taller-mecanico-backend
-# └── taller-mecanico-frontend
+### 2. Ingresa a la carpeta del backend:
+``cd taller-mecanico-backend``
 
-# 1. Clona ambos repositorios:
-git clone https://github.com/SrCristian18/taller-mecanico-backend.git
-git clone https://github.com/SrCristian18/taller-mecanico-frontend.git
+- Primero se levanta la BD y Kafka con el comando
+``docker compose up -d db kafka --build``
+- Después de que ambos contenedores hayan iniciado, al revisar la consola de cada uno, debemos esperar a que estén listos, pues ambas tecnologías tardan un poco en arrancar antes que el backend, y sin ella este último no puede levantarse.
 
-# 2. Ingresa a la carpeta del backend y ejecuta Docker Compose:
-cd taller-mecanico-backend
-docker-compose up -d --build
-```
+- Una vez que el servidor esté listo, se levanta el backend con el siguiente comando
+``docker compose up -d backend --build``
 
-## Ejecución Local (Sin Docker)
-Para ejecutar el backend de forma local sin Docker, es necesario tener Java instalado y una base de datos MySQL corriendo.
+Nota: En caso de que se presenten problemas con el contenedor, primero se tendrá que levantar la base de datos, luego Kafka y por último el backend. El frontend está comentado para evitar que se levante, ya que no será necesito utilizarlo.
 
-1. Configura tus credenciales de MySQL en `src/main/resources/application.yml`.
-2. Ejecuta la aplicación usando el wrapper de Maven:
-```bash
-./mvnw spring-boot:run
-```
+### 3. Interactuar con el backend mediante Swagger:
+Para interactuar con el proyecto, se debe utilizar Swagger para revisar los endpoints y utilizar sus funcionaliades.
 
 ## Acceso
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8080
 - **Swagger UI**: http://localhost:8080/swagger-ui.html
