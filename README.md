@@ -1,4 +1,9 @@
 # Taller-mecanico-backend
+### Autores
+- [Cristian Arenas Cogollo](https://github.com/SrCristian18) 
+- [Greison Castilla Carmona](https://github.com/GreisonCastilla)
+- [Gabriel Lara Montiel](https://github.com/gabriel-David-Lara-Montiel)
+- [Viviana Prasca Mendez](https://github.com/vivianaPM)
 
 ## Pasos para ejecutar el sistema completo con Docker (Backend, Kafka y Base de datos)
 
